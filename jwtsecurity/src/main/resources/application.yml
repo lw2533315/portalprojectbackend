@@ -1,3 +1,19 @@
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka/
+
+server:
+  port: 9001
+
+
+spring:
+  application:
+    name: authentication
+
+
 jwt:
   header: jwtHeader
   secret: abcdefg

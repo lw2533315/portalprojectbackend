@@ -34,6 +34,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
+
+        System.out.println("service: save ()");
         myRepository.save(user);
     }
 
@@ -41,14 +43,28 @@ public class UserServiceImpl implements UserService {
     //pass authentication return token otherwise return ""
     public String login(User user) throws AuthenticationException {
         try {
+            System.out.println("~~~~~~~~~1");
             UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+            System.out.println("~~~~~~~~~2");
             Authentication auth = authenticationManager.authenticate(upToken);
+            System.out.println("~~~~~~~~~3");
             SecurityContextHolder.getContext().setAuthentication(auth);
             UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(user.getUsername());
             return jwtTokenUtil.generateToken(userDetails);
         }catch (Exception e){
             return "";
         }
+    }
+
+    //check the token is valid or not after configur match test
+    @Override
+    public boolean doesAuthorizised(User user, String token){
+        if(jwtTokenUtil.validateToken(token, jwtUserDetailsService.loadUserByUsername(user.getUsername()))){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 }

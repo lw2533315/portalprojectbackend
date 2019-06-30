@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka/
+server:
+  port: 8102
+spring:
+  application:
+    name: emprequest
+feign:
+  hystrix:
+    enabled: true
+
+
+#  client:
+#    config:
+#      default:
+#        requestInterceptors:
+#          com.config.HeaderInterceptor

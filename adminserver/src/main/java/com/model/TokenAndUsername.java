@@ -1,0 +1,12 @@
+package com.model;
+
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Component
+@Data
+
+public class TokenAndUsername {
+    String token;
+    String username;
+}

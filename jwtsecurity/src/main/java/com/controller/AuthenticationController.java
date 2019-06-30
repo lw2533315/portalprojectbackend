@@ -1,21 +1,22 @@
 package com.controller;
 
 import com.jwt.JwtTokenUtil;
-import com.model.JwtUser;
 import com.model.User;
 import com.service.UserService;
+import feign.Headers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.authentication.AuthenticationManagerFactoryBean;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.Soundbank;
+
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value ="/auth" , method = {RequestMethod.GET, RequestMethod.DELETE, RequestMethod.POST, RequestMethod.PUT})
+@CrossOrigin
+@RequestMapping(value ="/auth" , method = {RequestMethod.GET, RequestMethod.POST}, produces = "application/json")
 public class AuthenticationController {
     @Autowired
     UserService userService;
@@ -23,22 +24,49 @@ public class AuthenticationController {
     @Autowired
     JwtTokenUtil jwtTokenUtil;
 
+    @PostMapping("/admin/addemp")
+    public boolean addEmployee(@RequestBody User user, HttpServletRequest req) throws Exception{
+
+        System.out.println("in add function");
+        String username = req.getHeader("username");
+        System.out.println("username is " + username);
+        User user1 = new User();
+        user1.setUsername(username);
+        if(userService.doesAuthorizised(user1, req.getHeader(jwtTokenUtil.getHeader()))){
+            System.out.println("controller: authenticationfunc");
+            user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+            user.setRole("ROLE_" + user.getRole());
+            userService.save(user);
+
+            return true;
+        }else{
+            System.out.println("expiration");
+            return false;
+        }
+
+    }
+
+    //1. check token is valid or not and the role must be admin or emp 将两个权限的方法写在一起了
+    //2. user httpservletRequest to add one more param, since need get token from the httpheader
+    @PostMapping({"/admin"})
+    public boolean doesAuthorizised(@RequestBody User user, HttpServletRequest req)  throws  Exception{
+        System.out.println("authencationcontroll: postmapping ");
+        return userService.doesAuthorizised(user, req.getHeader(jwtTokenUtil.getHeader()));
 
 
+    }
 
-//    @PostMapping("/emp")
-//    public void signup(@RequestBody User user){
-//        System.out.println("login method");
-//        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-//        userService.save(user);
-//
-//    }
 
-    //check the login user with db and generate string
+    //if login user info matching with db and generate string
+    //else return ""
     @PostMapping("/emplogin")
     public String empLogin(@RequestBody User user){
         System.out.println("in login");
-        return userService.login(user);
 
+        String token = userService.login(user);
+                System.out.println(token);
+        return token;
     }
+
+
 }

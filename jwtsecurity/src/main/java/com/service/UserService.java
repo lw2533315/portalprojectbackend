@@ -7,5 +7,6 @@ public interface UserService {
     User findByUsername(String username);
     void save(User user);
     String login(User user) throws AuthenticationException;
+    boolean doesAuthorizised(User user, String token);
 
 }

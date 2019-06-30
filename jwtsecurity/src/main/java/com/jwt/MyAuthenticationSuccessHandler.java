@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.Soundbank;
 import java.io.IOException;
 
 /**
@@ -29,8 +30,10 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+        System.out.println("test 2");
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
     }
 
 

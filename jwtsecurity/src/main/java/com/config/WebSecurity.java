@@ -82,7 +82,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                //role: admin authorization pass
+                .antMatchers("/auth/admin/**").hasRole("admin")
+                //role: emp    authorization pass
+                .antMatchers("/auth/emp/**").hasAnyRole("emp", "admin")
+                //log in all pass
                 .antMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and().headers().cacheControl();

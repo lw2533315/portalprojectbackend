@@ -58,13 +58,16 @@ public class UserServiceImpl implements UserService {
 
     //check the token is valid or not after configur match test
     @Override
-    public boolean doesAuthorizised(User user, String token){
-        if(jwtTokenUtil.validateToken(token, jwtUserDetailsService.loadUserByUsername(user.getUsername()))){
-            return true;
-        }else{
-            return false;
-        }
-
+    public boolean doesAuthorizised(String token){
+        System.out.println("servie: userServiceimp: doesauthorizied");
+//        return !jwtTokenUtil.isTokenExpired(token);
+          if(jwtTokenUtil.isTokenExpired(token)){
+              System.out.println("false~~~~~~~~~");
+              return false;
+          }else{
+              System.out.println("true~~~~~~~~~~~");
+              return true;
+          }
     }
 
 }

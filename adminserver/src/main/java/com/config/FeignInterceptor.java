@@ -10,8 +10,6 @@ public class FeignInterceptor implements RequestInterceptor {
     TokenAndUsername tokenAndUsername;
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        System.out.println("test~~~~~~~~~~~~~~~");
-        requestTemplate.header("jwtHeader", tokenAndUsername.getToken());
-        requestTemplate.header("username", tokenAndUsername.getUsername());
+//        requestTemplate.header("jwtHeader", tokenAndUsername.getToken());
     }
 }

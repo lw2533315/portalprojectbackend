@@ -3,7 +3,7 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:9000/eureka/
 server:
-  port: 8102
+  port: 8103
 spring:
   application:
     name: emprequest

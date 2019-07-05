@@ -2,18 +2,17 @@ package com.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Entity
 @Data
 public class TimeSheet {
-    @Id
+    long id;
     int employeeCode;
-    String employeeName;
     int projectCode;
-    String projectHours;
+    String employeeName;
+    String projName;
+    String task;
+    String taskDescription;
     LocalDate endDate;
     String action;
 }

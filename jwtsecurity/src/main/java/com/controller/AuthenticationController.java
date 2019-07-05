@@ -32,7 +32,7 @@ public class AuthenticationController {
         System.out.println("username is " + username);
         User user1 = new User();
         user1.setUsername(username);
-        if(userService.doesAuthorizised(user1, req.getHeader(jwtTokenUtil.getHeader()))){
+        if(userService.doesAuthorizised(req.getHeader(jwtTokenUtil.getHeader()))){
             System.out.println("controller: authenticationfunc");
             user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
             user.setRole("ROLE_" + user.getRole());
@@ -48,10 +48,10 @@ public class AuthenticationController {
 
     //1. check token is valid or not and the role must be admin or emp 将两个权限的方法写在一起了
     //2. user httpservletRequest to add one more param, since need get token from the httpheader
-    @PostMapping({"/admin"})
-    public boolean doesAuthorizised(@RequestBody User user, HttpServletRequest req)  throws  Exception{
-        System.out.println("authencationcontroll: postmapping ");
-        return userService.doesAuthorizised(user, req.getHeader(jwtTokenUtil.getHeader()));
+    @PostMapping(value ={"admin", "emp"})
+    public boolean doesAuthorizised(@RequestHeader(value="jwtHeader") String token, HttpServletRequest req)  throws  Exception{
+        System.out.println("authencationcontroll: doesauthorizaied " + req.getHeader("jwtHeader"));
+        return userService.doesAuthorizised(req.getHeader(jwtTokenUtil.getHeader()));
 
 
     }

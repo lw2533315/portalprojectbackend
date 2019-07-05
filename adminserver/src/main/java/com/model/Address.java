@@ -2,17 +2,16 @@ package com.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
-public class Address {
-    @Id @GeneratedValue
+public class Address implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     int addrId;
     String address;

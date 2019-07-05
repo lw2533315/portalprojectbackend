@@ -13,9 +13,11 @@ import java.io.IOException;
 
  */
 @Component
+
+//查看权限够不够
 public class RestAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        System.out.println("test 3");
+        System.out.println("have not enough authority");
     }
 }

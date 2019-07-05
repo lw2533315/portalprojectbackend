@@ -88,7 +88,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 //role: emp    authorization pass
                 .antMatchers("/auth/emp/**").hasAnyRole("emp", "admin")
                 //log in all pass
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/auth/emplogin").permitAll()
                 .anyRequest().authenticated()
                 .and().headers().cacheControl();
 

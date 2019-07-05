@@ -7,8 +7,5 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class TransactionAop {
-    @Before()
-    public doisAuthoriazied(){
 
-    }
 }

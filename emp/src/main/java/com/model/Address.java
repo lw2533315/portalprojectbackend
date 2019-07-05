@@ -2,14 +2,17 @@ package com.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
-public class Address {
+public class Address implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     int addrId;
     String address;
     String city;
@@ -17,8 +20,8 @@ public class Address {
     String postCode;
     String country;
 
-    @OneToOne
-    Employee employee;
+    @OneToMany(mappedBy = "address")
+    List<Employee> employees = new ArrayList<>();
 
 
 }

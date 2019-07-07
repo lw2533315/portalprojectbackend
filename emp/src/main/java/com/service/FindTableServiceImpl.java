@@ -90,4 +90,10 @@ public class FindTableServiceImpl implements FindTableService {
         List<Vacation> vacations = vacationRepository.findByEmpId(employee.getId());
         return vacations;
     }
+
+    @Override
+    public Employee  gettEmployeeByEmail (String email) {
+       return employeeRepository.findByEmail(email);
+
+    }
 }

@@ -1,11 +1,9 @@
 package com.service;
 
 import com.model.*;
-import com.repository.EmployeeRepository;
-import com.repository.ProjectRepository;
-import com.repository.TasksheetRepository;
-import com.repository.VacationRepository;
+import com.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,6 +21,10 @@ public class UpdateTableServiceImpl implements UpdateTableService {
     private VacationRepository vacationRepository;
     @Autowired
     private RabbitMQService rabbitMQService;
+    @Autowired
+    private PasswordResetTokenRepository passwordResetTokenRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void updateTimesheet(TimeSheet timesheet) {
@@ -47,6 +49,30 @@ public class UpdateTableServiceImpl implements UpdateTableService {
         Vacation temp = vacationRepository.saveAndFlush(vacation);
 //        vacationRepository.save()
         rabbitMQService.send(temp);
+    }
+
+
+    /*  persistent the password for the employee
+    *   find the employee by token  from tabke PasswordResetToken to get employee's id
+    *   then get username by the employee (find employee by id)
+    *   add encode by Bcryptpasswordencoder();
+    *
+    *   @param    token (UUID token)
+    * */
+    @Override
+    public void updatePassword(int id, String token, String password) {
+        PasswordResetToken passwordResetToken = passwordResetTokenRepository.findByToken(token);
+        if(passwordResetToken.getEmpId() != id ){
+            throw new RuntimeException("id, token not match");
+        }
+        Employee employee = employeeRepository.findById(passwordResetToken.getEmpId());
+        User user = userRepository.findByUsername(employee.getUsername());
+        user.setPassword(new BCryptPasswordEncoder().encode(password));
+    }
+
+    @Override
+    public void deleteUsedTokenFrom(int id) {
+       passwordResetTokenRepository.deleteAllByEmpId(id);
     }
 
 

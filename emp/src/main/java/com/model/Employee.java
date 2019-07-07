@@ -23,6 +23,7 @@ public class Employee implements Serializable {
     String gender;
     String birth;
     String nationality;
+    @Column(nullable = false)
     String email;
     String mobile;
     String username;

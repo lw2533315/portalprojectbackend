@@ -14,4 +14,6 @@ public interface FindTableService {
      public Salary getSalary(String username);
 
     public List<Vacation> getVacations(String username);
+
+    public Employee  gettEmployeeByEmail (String email);
 }

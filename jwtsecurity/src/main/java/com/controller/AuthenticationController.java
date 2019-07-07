@@ -3,16 +3,12 @@ package com.controller;
 import com.jwt.JwtTokenUtil;
 import com.model.User;
 import com.service.UserService;
-import feign.Headers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Soundbank;
 
 @RestController
 @CrossOrigin

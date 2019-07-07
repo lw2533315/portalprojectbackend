@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d31502b6-210a-4582-aab4-41e67ebec8b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/config/WebConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/model/GenericResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/model/PasswordResetToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/repository/PasswordResetTokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/PasswordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/PasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../adminserver/src/main/java/com/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../adminserver/src/main/java/com/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/EmpApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/EmpApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/service/FindTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/FindTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/service/FindTableServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/FindTableServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/service/UpdateTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/UpdateTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../emp/src/main/java/com/service/UpdateTableServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/java/com/service/UpdateTableServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../emp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../emp/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jwtsecurity/src/main/java/com/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jwtsecurity/src/main/java/com/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jwtsecurity/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../jwtsecurity/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../note.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../note.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -99,8 +78,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="537" />
-    <option name="y" value="46" />
+    <option name="x" value="96" />
+    <option name="y" value="95" />
     <option name="width" value="1535" />
     <option name="height" value="1050" />
   </component>
@@ -112,8 +91,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,11 +135,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jwtsecurity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="RecentsManager">
@@ -209,7 +188,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20671141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20939597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />

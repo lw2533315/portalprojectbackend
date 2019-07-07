@@ -47,6 +47,7 @@ public class AuthenticationController {
     @PostMapping(value ={"admin", "emp"})
     public boolean doesAuthorizised(@RequestHeader(value="jwtHeader") String token, HttpServletRequest req)  throws  Exception{
         System.out.println("authencationcontroll: doesauthorizaied " + req.getHeader("jwtHeader"));
+        System.out.println("authencationcontroll: doesauthorizaied toke " + token );
         return userService.doesAuthorizised(req.getHeader(jwtTokenUtil.getHeader()));
 
 

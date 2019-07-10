@@ -5,13 +5,12 @@ import com.service.AuthService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 @EnableFeignClients
 @RequestMapping(value = "/auth", method = {RequestMethod.POST, RequestMethod.GET})
 public class AuthController {

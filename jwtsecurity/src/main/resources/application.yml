@@ -11,7 +11,7 @@ server:
 
 spring:
   application:
-    name: authentication
+    name:
 
 
 jwt:
